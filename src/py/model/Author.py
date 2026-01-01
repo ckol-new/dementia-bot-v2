@@ -1,4 +1,3 @@
-
 # author clas holds all data around an author/user that made a post, discussion, or comment
 # username, user id, profile url
 # DOES NOT GET EMBEDDED AS ANYTHING, JUST FOR BOOK KEEPING OF WHO SAID WHAT

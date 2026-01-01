@@ -1,4 +1,4 @@
-from Author import  Author
+from .Author import Author
 
 # comment class holds all data around an un-embedded comment
 # can be generated from scraping, or by json deserialization
@@ -13,11 +13,10 @@ class Comment:
 
     def to_dict(self) -> dict:
         return {
-            "comment_id": self.comment_id,
-            "post_id": self.post_id,
-            "author": self.author,
+            'url': self.url,
+            "author": self.author.to_dict() if self.author else None,
+            'date': self.date,
             "content": self.content,
-            "timestamp": self.timestamp
         }
 
     @classmethod

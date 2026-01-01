@@ -1,5 +1,5 @@
-from Author import Author
-from Comment import Comment
+from .Author import Author
+from .Comment import Comment
 
 # discussion class holds all data around an un-embedded discussion
 # can be generated from scraping, or by json deserialization
