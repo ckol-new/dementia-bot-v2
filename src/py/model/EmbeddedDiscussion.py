@@ -1,5 +1,6 @@
 import numpy as np
 from .Author import Author
+from py.model.EmbeddedComment import EmbeddedComment
 
 # EACH SENTENCE GETS EMBEDDED AS ITS OWN VECTOR, MEANING EACH CONTENT IS LIST OF VECTORS
 # embedded discussion class holds all data around an embedded discussion
@@ -7,7 +8,7 @@ from .Author import Author
 # holds list of embedded comment objects (individual embedded comments)
 # has author object
 class EmbeddedDiscussion:
-    def __init__(self, url: str, discussion_id: int, title_string: str,  title: np.ndarray, author: Author, date: str, sentences: list, content: np.ndarray, comments: list):
+    def __init__(self, url: str, discussion_id: int, title_string: str,  title: np.ndarray, author: Author, date: str, sentences: list, content: list[np.ndarray], comments: list):
         self.url = url
         self.discussion_id = discussion_id
         self.title_string = title_string
@@ -63,6 +64,8 @@ class EmbeddedDiscussion:
         else:
             vectors = np.array([])
 
+        comments = [EmbeddedDiscussion.from_dict(comment_data) for comment_data in data['comments']]
+
         return cls(
             url=data['url'],
             discussion_id=data['discussion_id'],
@@ -72,5 +75,5 @@ class EmbeddedDiscussion:
             date=data['date'],
             sentences=sentences,
             content=vectors,
-            comments=data.get('comments', [])
+            comments=comments
         )

@@ -3,7 +3,7 @@ from py.util.Scraper import ALZConnectedScraper
 from py.util.Encoder import ALZConnectedEncoder
 import pathlib
 
-def main():
+def scraping():
     # get current working directory
     cwd = pathlib.Path().resolve() / 'src'
     print(cwd)
@@ -61,6 +61,11 @@ def main():
         timer=True
     )
 
+def query():
+    pass
+
+def main():
+    pass
 
 if __name__ == "__main__":
     main()

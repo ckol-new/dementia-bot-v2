@@ -6,7 +6,7 @@ import numpy as np
 # can be generated from embedding process, or by json deserialization
 # has author object
 class EmbeddedComment:
-    def __init__(self, url: str, author: Author, date: str, sentences: list, content: list):
+    def __init__(self, url: str, author: Author, date: str, sentences: list[str], content: list):
         self.url = url
         self.author = author
         self.date = date
